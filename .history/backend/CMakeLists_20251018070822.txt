@@ -1,0 +1,26 @@
+# backend/CMakeLists.txt
+
+cmake_minimum_required(VERSION 3.10)
+project(FLIPIT_Backend VERSION 1.0)
+
+# Specify the directory containing our source files
+set(SOURCE_DIR src)
+
+# Add the include directory so the compiler can find httplib.h and json.hpp
+include_directories(include)
+
+# Define the executable target
+add_executable(flipit_server
+    ${SOURCE_DIR}/server.cpp
+)
+
+# You may need to link specific libraries depending on your OS/Compiler, 
+# especially for networking components (e.g., -pthread on Linux).
+# For httplib, linking is usually minimal:
+target_link_libraries(flipit_server PUBLIC
+    pthread # Common requirement for asynchronous operations on Linux/macOS
+)
+
+# Optional: Set C++ standard
+set_property(TARGET flipit_server PROPERTY CXX_STANDARD 17)
+set_property(TARGET flipit_server PROPERTY CXX_STANDARD_REQUIRED ON)

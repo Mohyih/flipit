@@ -1,0 +1,125 @@
+/* src/App.css (FINALIZED MODERN STYLES) */
+/* ---------------------------------------------------- */
+/* 1. CSS RESET & GLOBAL VARIABLES */
+/* ---------------------------------------------------- */
+/* Global Box Model Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Define global variables used throughout the application */
+:root {
+    /* Application Color Palette (Crucial Definitions) */
+    --color-header-bg: #1f2937;         /* Dark Charcoal/Navy for the header */
+    --color-primary-green: #059669;     /* Vibrant Green for brand/action */
+    --color-text-light: #f3f4f6;        /* Near White text on dark backgrounds */
+    --color-text-dark: #111827;         /* Heading/Body text on light background */
+    --color-background-light: #f9fafb;  /* Overall page background color */
+    --color-gray-dark: #4b5563;         /* Darker gray for subtle elements */
+    --color-gray-light: #d1d5db;        /* Lighter gray for borders/dividers */
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* ---------------------------------------------------- */
+/* NEW: DARK MODE OVERRIDES */
+/* ---------------------------------------------------- */
+
+body.dark-mode {
+    /* Override global body colors */
+    background-color: #1a1a1a;          /* Dark charcoal background */
+    color: var(--color-text-light);     /* Light text */
+}
+
+.dark-mode {
+    /* Re-define color variables for dark theme */
+    --color-header-bg: #111111;         /* Very dark black for header */
+    --color-text-dark: #f3f4f6;         /* Light text on dark elements */
+    --color-background-light: #1a1a1a;  /* Dark main background */
+    --color-gray-dark: #b0b0b0;         /* Lighter gray for subtle elements */
+    --color-gray-light: #333333;        /* Dark border/divider */
+
+    /* Override component backgrounds */
+    .set-card, 
+    .auth-form, 
+    .quiz-completion-container,
+    .add-card-form-container,
+    .card-front,
+    .card-back {
+        background: #282828;            /* Slightly lighter dark background for cards/forms */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadows */
+    }
+
+    .set-card h4, .set-card p {
+        color: var(--color-text-dark); /* Ensure text is light */
+    }
+    
+    .card-front, .card-back {
+        color: var(--color-text-dark); /* Card text is light */
+    }
+
+    .card-front {
+        border-color: #444; /* Darker neutral border */
+    }
+
+    .card-back {
+        border-color: #777; /* Darker neutral border */
+        color: var(--color-text-light);
+    }
+    
+    /* Table styles for Dark Mode */
+    .card-editor-table th {
+        background-color: #333;
+        color: var(--color-text-light);
+    }
+    .card-editor-table th, .card-editor-table td {
+        border-bottom: 1px solid #444;
+    }
+
+    /* Progress Bar styles for Dark Mode */
+    .quiz-progress-bar-container {
+        background-color: #282828;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    .progress-segment {
+        background-color: #333333;
+    }
+    .progress-label {
+        color: var(--color-gray-dark);
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* NEW: THEME TOGGLE BUTTON STYLES (Place in Section 2: HEADER & NAVIGATION STYLES) */
+/* ---------------------------------------------------- */
+
+.theme-toggle-button {
+    /* Using a dark background for the icon button to look good in either mode */
+    background: transparent !important; 
+    border: 1px solid var(--color-gray-light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    /* Icon color is always light in the header */
+    color: var(--color-text-light) !important; 
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: scale(1.05);
+}
+
+/* Ensure the toggle button is positioned correctly with other buttons */
+.header-controls {
+    display: flex;
+    align-items: center;
+}
