@@ -6,7 +6,7 @@ import SetEditor from './components/SetEditor.jsx';
 import Quiz from './components/Quiz.jsx';
 
 
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = 'https://f32887ad-dcce-4a8c-a812-456d546e8be9-00-19utqwfhb8y1y.sisko.replit.dev/api';
 
 const App = () => {
 
