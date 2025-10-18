@@ -1,0 +1,520 @@
+/* src/App.css (FINALIZED MODERN STYLES) */
+
+/* ---------------------------------------------------- */
+/* 1. CSS RESET & GLOBAL VARIABLES */
+/* ---------------------------------------------------- */
+
+/* Global Box Model Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Define global variables used throughout the application */
+:root {
+  /* Application Color Palette (Crucial Definitions) */
+  --color-header-bg: #1f2937;        /* Dark Charcoal/Navy for the header */
+  --color-primary-green: #059669;    /* Vibrant Green for brand/action */
+  --color-text-light: #f3f4f6;       /* Near White text on dark backgrounds */
+  --color-text-dark: #111827;        /* Heading/Body text on light background */
+  --color-background-light: #f9fafb; /* Overall page background color */
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+  line-height: 1.6; 
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------- */
+/* 2. HEADER & NAVIGATION STYLES */
+/* ---------------------------------------------------- */
+
+.app-header {
+    background-color: var(--color-header-bg); /* Dark charcoal background */
+    padding: 15px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header h1 {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--color-primary-green); /* Green Logo */
+    letter-spacing: 2px;
+    margin: 0; 
+}
+
+.logo-button {
+    cursor: pointer; 
+    transition: opacity 0.2s ease;
+}
+.logo-button:hover {
+    opacity: 0.85;
+}
+
+
+/* Base for all header buttons */
+.nav-button {
+    background: transparent;
+    color: var(--color-text-light); 
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Primary "Create Set" Button Style */
+.create-set-button {
+    background-color: var(--color-primary-green);
+    color: var(--color-header-bg); 
+    font-weight: 700;
+    border-radius: 25px; 
+    padding: 10px 20px;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.create-set-button:hover {
+    background-color: #00A647; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Dedicated Logout Button Style */
+.logout-button {
+    background-color: #e74c3c; 
+    color: white;
+    font-weight: 700;
+    border-radius: 25px; 
+    padding: 10px 20px;
+    margin-left: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.logout-button:hover {
+    background-color: #c0392b; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+/* --- Authentication and Forms (Unchanged) --- */
+.auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.auth-form button:hover {
+    background-color: #45a049;
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. FLIP CARD & QUIZ STYLES */
+/* ---------------------------------------------------- */
+
+.flip-card-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 5;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 450px; 
+    height: 280px;
+    position: relative;
+    transition: transform 0.8s; 
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    border-radius: 12px;
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.card-front {
+    background-color: white;
+    color: var(--color-text-dark);
+    border: 3px solid var(--color-primary-green); 
+}
+
+.card-back {
+    background-color: var(--color-primary-green);
+    color: var(--color-header-bg); 
+    transform: rotateY(180deg);
+}
+
+/* Quiz Button Container */
+.quiz-button-container {
+    position: relative; 
+    z-index: 10; 
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    margin-top: 40px;
+}
+
+/* Apply the primary button style to the quiz buttons */
+.quiz-button-container button {
+    background-color: var(--color-primary-green);
+    color: var(--color-header-bg);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    min-width: 150px;
+}
+
+.quiz-button-container button:hover {
+    transform: translateY(-2px); 
+}
+
+.quiz-button-container .correct-btn {
+    background-color: #28a745; 
+}
+.quiz-button-container .incorrect-btn {
+    background-color: #dc3545; 
+}
+.quiz-button-container .correct-btn:hover {
+    background-color: #1e7e34;
+}
+.quiz-button-container .incorrect-btn:hover {
+    background-color: #bd2130;
+}
+
+
+/* ---------------------------------------------------- */
+/* 4. DASHBOARD STYLES */
+/* ---------------------------------------------------- */
+
+.set-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; 
+    margin-top: 20px;
+}
+.set-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 250px; 
+    height: 140px; 
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; 
+    overflow: hidden;
+}
+.set-card:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+}
+
+.set-card h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.25em;
+    color: var(--color-text-dark);
+}
+.set-card p {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* Icon Button Styles (Top Right) */
+.set-icon-button {
+    position: absolute;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    border-radius: 50%;
+    line-height: 1; 
+    z-index: 20; 
+}
+
+/* Manage/Gear Button */
+.manage-set-btn {
+    right: 25px;
+    color: #6c757d;
+}
+.manage-set-btn:hover {
+    color: var(--color-primary-green);
+    background-color: rgba(0, 192, 92, 0.1);
+}
+
+/* Delete/X Button */
+.delete-set-btn {
+    right: 5px;
+    color: #dc3545;
+    font-weight: bold;
+}
+.delete-set-btn:hover {
+    color: white;
+    background-color: #dc3545;
+}
+
+
+/* ---------------------------------------------------- */
+/* 5. SET EDITOR STYLES (Includes New Changes) */
+/* ---------------------------------------------------- */
+
+/* Base style for editor utility buttons */
+.action-button {
+    background-color: #6c757d; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-top: 10px; 
+    margin-right: 5px; 
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 6px; 
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.action-button.edit-btn {
+    background-color: #ffc107; 
+    color: #333;
+}
+.action-button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.action-button.delete-btn {
+    background-color: #dc3545; 
+}
+.action-button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.action-button.quiz-btn {
+    background-color: var(--color-primary-green); 
+    color: var(--color-header-bg);
+}
+.action-button.quiz-btn:hover {
+    background-color: #00A647;
+}
+
+/* NEW: Consistent Button Style for Editor Title Update and Add Card */
+.primary-editor-button {
+    /* Copying styles from .create-set-button and .logout-button */
+    background-color: var(--color-primary-green);
+    color: var(--color-header-bg); 
+    font-weight: 700;
+    border-radius: 25px; /* Modern pill shape */
+    padding: 10px 20px;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.primary-editor-button:hover {
+    background-color: #00A647; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* NEW: Editor Title Style */
+.editor-title {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--color-text-dark); /* Using dark text color */
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* NEW: Card Action Icons in Table */
+.card-action-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px;
+    transition: transform 0.1s ease;
+    font-size: 1.5rem; 
+    line-height: 1;
+}
+
+.card-action-icon:hover {
+    transform: scale(1.1);
+}
+
+.card-action-icon.gear-icon {
+    color: #6c757d; /* Gray color for edit (⚙) */
+}
+
+.card-action-icon.gear-icon:hover {
+    color: #ffc107; 
+}
+
+.card-action-icon.delete-icon {
+    color: #dc3545; /* Red color for delete (X) */
+}
+
+.card-action-icon.delete-icon:hover {
+    color: #c82333;
+}
+
+
+/* Center the Add New Card form (Adjusted for square shape) */
+.add-card-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 0 auto 40px auto; /* Centered horizontally */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    max-width: 400px; /* Constrain max size */
+    width: 90%; 
+    aspect-ratio: 1 / 1; /* Makes it a perfect square */
+    justify-content: space-around; /* Better vertical spacing */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.add-card-form-container input {
+    margin: 5px 0 15px 0;
+    padding: 12px;
+    width: 90%; 
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Modernized Editor Table Look */
+.card-editor-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    margin-top: 20px;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.card-editor-table th, .card-editor-table td {
+    border: none; 
+    border-bottom: 1px solid #eee; 
+    padding: 12px 15px;
+    text-align: left;
+}
+.card-editor-table th {
+    background-color: #f8f9fa; 
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Inline Edit Input Styling */
+.card-editor-table input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid var(--color-primary-green);
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Action buttons in table (reusing existing modern classes) */
+.card-editor-table .action-button {
+    margin: 0 3px;
+    padding: 5px 10px;
+}
+
+.quiz-exit-btn {
+    background-color: #6c757d; /* Gray exit color */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    min-width: 150px;
+    margin-top: 40px;
+}
+.quiz-exit-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+
