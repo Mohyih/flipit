@@ -96,11 +96,25 @@ const App = () => {
     setView('quiz');
   };
 
-  const navigateToCreateSet = () => {
-    setCurrentSetId(null);
-    setCurrentSet({ set_id: null, title: '', cards: [] });
+  const navigateToCreateSet = async () => {
+  try {
+    
+    const newSet = await apiCall('/sets', 'POST', {
+      title: 'Untitled Set',
+      description: '',
+      cards: []
+    });
+
+    setSets(prevSets => [...prevSets, newSet]);
+
+    setCurrentSetId(newSet.set_id);
+    setCurrentSet(newSet);
     setView('editor');
-  };
+  } catch (err) {
+    console.error('Failed to create set:', err);
+  }
+};
+
 
   const renderContent = () => {
     if (!token) return <Auth apiCall={apiCall} onLogin={handleLogin} />;
