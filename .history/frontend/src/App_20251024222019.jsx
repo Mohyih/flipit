@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard.jsx';
 import SetEditor from './components/SetEditor.jsx';
 import Quiz from './components/Quiz.jsx';
 
+// Change this later if you deploy backend online
 const API_BASE_URL = 'https://fae19d40-ad8e-4df9-84a1-f4f2d63120cc-00-3rs2mxgv72489.sisko.replit.dev/api';
 
 const App = () => {

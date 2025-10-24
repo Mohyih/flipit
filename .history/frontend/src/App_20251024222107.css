@@ -833,12 +833,17 @@ body {
     color: inherit;
 }
 
+/* ========================================= */
+/* 🌿 MOBILE RESPONSIVE DESIGN (Clean layout) */
+/* ========================================= */
 @media (max-width: 768px) {
 
+  /* General container spacing */
   body, .dashboard, .set-editor, .quiz-container {
     padding: 10px;
   }
 
+  /* Header adjustments */
   header {
     flex-direction: column;
     align-items: center;
@@ -854,6 +859,7 @@ body {
     font-size: 16px;
   }
 
+  /* Dashboard cards */
   .set-list {
     display: flex;
     flex-direction: column;
@@ -867,6 +873,7 @@ body {
     padding: 15px;
   }
 
+  /* Editor forms */
   .set-editor input,
   .set-editor textarea {
     width: 95% !important;
@@ -878,6 +885,7 @@ body {
     font-size: 16px;
   }
 
+  /* Quiz layout */
   .quiz-title {
     font-size: 1.25rem;
     margin-bottom: 10px;
@@ -897,13 +905,13 @@ body {
     font-size: 16px;
   }
 
+  /* Table responsiveness */
   .card-editor-table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
     border-radius: 8px;
   }
-
   h2, h3, p, td, th {
     word-wrap: break-word;
   }

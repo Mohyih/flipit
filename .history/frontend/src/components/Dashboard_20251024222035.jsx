@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Dashboard = ({ apiCall, navigateToEditor, navigateToQuiz, user, sets, setSets }) => {
     const [loading, setLoading] = useState(false);
-    const [hasFetched, setHasFetched] = useState(false); 
+    const [hasFetched, setHasFetched] = useState(false); // ✅ added flag
 
     useEffect(() => {
         const fetchSets = async () => {

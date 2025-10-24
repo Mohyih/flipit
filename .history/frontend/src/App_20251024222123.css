@@ -833,6 +833,9 @@ body {
     color: inherit;
 }
 
+/* ========================================= */
+/* 🌿 MOBILE RESPONSIVE DESIGN (Clean layout) */
+/* ========================================= */
 @media (max-width: 768px) {
 
   body, .dashboard, .set-editor, .quiz-container {

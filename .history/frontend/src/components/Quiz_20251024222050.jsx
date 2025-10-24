@@ -143,6 +143,7 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
                     onClick={handleCardFlip}
                     style={{cursor: 'pointer'}}
                 >
+                    {/* 🛑 FIX 3: Wrap card content in <p> tags for CSS centering/truncation to work */}
                     <div className="card-face card-front"><p>{currentCard.front}</p></div>
                     <div className="card-face card-back"><p>{currentCard.back}</p></div>
                 </div>

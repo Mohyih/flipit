@@ -435,7 +435,7 @@ int main() {
         }
     });
 
-    std::cout << "Starting FLIPIT! C++ Backend on https://fae19d40-ad8e-4df9-84a1-f4f2d63120cc-00-3rs2mxgv72489.sisko.replit.dev/api" << std::endl;
+    std::cout << "Starting FLIPIT! C++ Backend on https://fae19d40-ad8e-4df9-84a1-f4f2d63120cc-00-3rs2mxgv72489.sisko.replit.dev/" << std::endl;
     if (!svr.listen("0.0.0.0", 8080)) {
         std::cerr << "Failed to start server." << std::endl;
     }

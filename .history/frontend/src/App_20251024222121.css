@@ -833,12 +833,16 @@ body {
     color: inherit;
 }
 
+/* ========================================= */
+/* 🌿 MOBILE RESPONSIVE DESIGN (Clean layout) */
+/* ========================================= */
 @media (max-width: 768px) {
 
+  /* General container spacing */
   body, .dashboard, .set-editor, .quiz-container {
     padding: 10px;
   }
-
+  
   header {
     flex-direction: column;
     align-items: center;

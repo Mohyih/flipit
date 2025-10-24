@@ -118,6 +118,7 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
     return (
         <div style={{ textAlign: 'center', padding: '20px' }}>
 
+            {/* 🛑 FIX 2: Use .quiz-title class for styling/centering/truncation */}
             <h2 className="quiz-title text-truncate">
                 Quiz: {set.title}
             </h2>
@@ -143,6 +144,7 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
                     onClick={handleCardFlip}
                     style={{cursor: 'pointer'}}
                 >
+                    {/* 🛑 FIX 3: Wrap card content in <p> tags for CSS centering/truncation to work */}
                     <div className="card-face card-front"><p>{currentCard.front}</p></div>
                     <div className="card-face card-back"><p>{currentCard.back}</p></div>
                 </div>
