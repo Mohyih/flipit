@@ -20,7 +20,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             setNewFront('');
             setNewBack('');
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ update dashboard instantly
         } catch (e) {
             console.error(`Failed to add card: ${e.message}`);
         }
@@ -30,7 +30,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
         try {
             await apiCall(`/sets/${set.set_id}/cards/${cardId}`, 'DELETE');
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ sync after delete
         } catch (e) {
             console.error(`Failed to delete card: ${e.message}`);
         }

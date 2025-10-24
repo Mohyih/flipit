@@ -20,7 +20,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             setNewFront('');
             setNewBack('');
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ update dashboard instantly
         } catch (e) {
             console.error(`Failed to add card: ${e.message}`);
         }

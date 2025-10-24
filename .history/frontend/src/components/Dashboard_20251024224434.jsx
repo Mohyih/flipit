@@ -20,7 +20,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             setNewFront('');
             setNewBack('');
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ update dashboard instantly
         } catch (e) {
             console.error(`Failed to add card: ${e.message}`);
         }
@@ -30,7 +30,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
         try {
             await apiCall(`/sets/${set.set_id}/cards/${cardId}`, 'DELETE');
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ sync after delete
         } catch (e) {
             console.error(`Failed to delete card: ${e.message}`);
         }
@@ -53,7 +53,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             });
             setEditingCardId(null);
             const updatedSet = await refreshSet();
-            navigateToDashboard(updatedSet); 
+            navigateToDashboard(updatedSet); // ✅ sync edited card
         } catch (e) {
             console.error(`Failed to update card: ${e.message}`);
         }
@@ -76,11 +76,11 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             if (isNewSet) {
                 const newSet = await apiCall('/sets', 'POST', payload);
                 console.log("Set saved! You can now add cards.");
-                navigateToDashboard(newSet); 
+                navigateToDashboard(newSet); // ✅ dashboard sees new set instantly
             } else {
                 await apiCall(`/sets/${set.set_id}`, 'PUT', payload);
                 const updatedSet = await refreshSet();
-                navigateToDashboard(updatedSet); 
+                navigateToDashboard(updatedSet); // ✅ sync title/desc instantly
             }
         } catch (e) {
             console.error(`Failed to save set: ${e.message}`);
