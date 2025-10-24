@@ -1,0 +1,51 @@
+:root {
+  --color-primary-green: #00C853;  
+  --color-header-bg: #263238;        
+  --color-text-light: #ECEFF1;       
+  --color-text-dark: #37474F;       
+  --color-background: #f4f4f9;      
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.set-card-description {
+    font-size: 0.9em;
+    color: var(--color-gray-dark);
+    margin-bottom: 10px;
+    height: 60px; /* Give it a fixed height to show 3 lines */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Optional: adds an ellipsis */
+    /* Allows for multiline truncation */
+    display: -webkit-box;
+   
+    -webkit-box-orient: vertical;
+}
+
+/* Dark Mode Override for Description */
+.dark-mode .set-card-description {
+    color: var(--color-gray-dark); 
+}
+
+.set-card .card-count-text {
+    font-size: 0.9em;
+    color: #6c757d; 
+    position: absolute;
+    bottom: 20px; 
+    left: 20px;
+}
+
+.dark-mode .set-card .card-count-text {
+    color: var(--color-gray-dark);
+}

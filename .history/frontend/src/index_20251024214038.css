@@ -1,0 +1,55 @@
+:root {
+  --color-primary-green: #00C853;    /* Bright Green for logo and buttons */
+  --color-header-bg: #263238;        /* Dark Charcoal for header background */
+  --color-text-light: #ECEFF1;       /* Near-white for contrast text */
+  --color-text-dark: #37474F;        /* Dark gray for main body text */
+  --color-background: #f4f4f9;      /* Light gray background */
+}
+
+/* Base Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+}
+
+/* Basic utility classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.set-card-description {
+    /* Style for the new description paragraph */
+    font-size: 0.9em;
+    color: var(--color-gray-dark); /* Use a muted color */
+    margin-bottom: 10px;
+    height: 60px; /* Give it a fixed height to show 3 lines */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Optional: adds an ellipsis */
+    /* Allows for multiline truncation */
+    display: -webkit-box;
+   
+    -webkit-box-orient: vertical;
+}
+
+/* Dark Mode Override for Description */
+.dark-mode .set-card-description {
+    color: var(--color-gray-dark); /* Lighter gray on dark background */
+}
+
+/* Update .set-card p to only target card_count */
+.set-card .card-count-text {
+    font-size: 0.9em;
+    color: #6c757d; /* Keep it muted */
+    position: absolute; /* Position it at the bottom */
+    bottom: 20px; 
+    left: 20px;
+}
+
+.dark-mode .set-card .card-count-text {
+    color: var(--color-gray-dark);
+}

@@ -13,7 +13,7 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
         if (set.cards.length > 0 && currentQuizCards.length === 0) {
               setCurrentQuizCards(set.cards);
         }
-    }, [set.cards]);
+    }, [set.cards, currentQuizCards.length]);
 
     useEffect(() => {
         if (currentIndex >= currentQuizCards.length && currentQuizCards.length > 0) {
@@ -49,23 +49,13 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
         return (
             <div className="quiz-completion-container">
                 <h2>Quiz Complete! </h2>
-                <p style={{ 
-                    maxWidth: '500px', 
-                    margin: '0 auto 15px auto', 
-                    overflow: 'hidden',
-                    fontSize: '1.1em'
-                }}>
-                    You finished all {currentQuizCards.length} cards in 
-                    <strong 
-                        className="text-truncate" 
-                        style={{ 
-                            display: 'inline-block', 
-                            maxWidth: '300px',      
-                            verticalAlign: 'middle' 
-                        }}
-                    >
+                {/* 🛑 FIX 1: Apply .completion-message and .text-truncate to the main <p> tag */}
+                <p className="completion-message text-truncate">
+                    {`You finished all ${currentQuizCards.length} cards in `}
+                    <strong style={{ fontWeight: 'bold' }}>
                         {set.title}
-                    </strong>.
+                    </strong>
+                    {`.`}
                 </p>
                 
                 <div className="quiz-stats-summary">
@@ -129,7 +119,8 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
     return (
         <div style={{ textAlign: 'center', padding: '20px' }}>
 
-            <h2 className="text-truncate" style={{ maxWidth: '600px', margin: '0 auto 20px auto' }}>
+            {/* 🛑 FIX 2: Use .quiz-title class for styling/centering/truncation */}
+            <h2 className="quiz-title text-truncate">
                 Quiz: {set.title}
             </h2>
             
@@ -154,8 +145,9 @@ const Quiz = ({ set, navigateToDashboard, apiCall }) => {
                     onClick={handleCardFlip}
                     style={{cursor: 'pointer'}}
                 >
-                    <div className="card-face card-front">{currentCard.front}</div>
-                    <div className="card-face card-back">{currentCard.back}</div>
+                    {/* 🛑 FIX 3: Wrap card content in <p> tags for CSS centering/truncation to work */}
+                    <div className="card-face card-front"><p>{currentCard.front}</p></div>
+                    <div className="card-face card-back"><p>{currentCard.back}</p></div>
                 </div>
             </div>
             {isFlipped && (

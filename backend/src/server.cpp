@@ -435,7 +435,7 @@ int main() {
         }
     });
 
-    std::cout << "Starting FLIPIT! C++ Backend on http://localhost:8080..." << std::endl;
+    std::cout << "Starting FLIPIT! C++ Backend on https://a0144728-f261-4753-b656-6d92d67137fa-00-17396kpj4nv29.pike.replit.dev/api..." << std::endl;
     if (!svr.listen("0.0.0.0", 8080)) {
         std::cerr << "Failed to start server." << std::endl;
     }

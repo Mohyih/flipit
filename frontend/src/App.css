@@ -151,6 +151,9 @@ body {
     margin-left: 20px;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .create-set-button:hover {
@@ -407,7 +410,7 @@ body {
 .quiz-completion-container {
     padding: 40px;
     text-align: center;
-    background-color: #000000;
+    background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     max-width: 600px;
@@ -830,3 +833,88 @@ body {
     color: inherit;
 }
 
+/* ========================================= */
+/* 🌿 MOBILE RESPONSIVE DESIGN (Clean layout) */
+/* ========================================= */
+@media (max-width: 768px) {
+
+  /* General container spacing */
+  body, .dashboard, .set-editor, .quiz-container {
+    padding: 10px;
+  }
+
+  /* Header adjustments */
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header .create-set-button {
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* Dashboard cards */
+  .set-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .set-card {
+    width: 95%;
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  /* Editor forms */
+  .set-editor input,
+  .set-editor textarea {
+    width: 95% !important;
+    font-size: 15px;
+  }
+
+  .primary-editor-button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  /* Quiz layout */
+  .quiz-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .flip-card-container {
+    width: 95%;
+    height: auto;
+  }
+
+  .quiz-response-btn,
+  .quiz-action-button {
+    width: 90%;
+    max-width: 350px;
+    margin: 8px auto;
+    display: block;
+    font-size: 16px;
+  }
+
+  /* Table responsiveness */
+  .card-editor-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 8px;
+  }
+
+  /* Improve readability on smaller devices */
+  h2, h3, p, td, th {
+    word-wrap: break-word;
+  }
+}
