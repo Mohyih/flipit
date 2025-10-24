@@ -19,7 +19,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             await apiCall(`/sets/${set.set_id}/cards`, 'POST', { front: newFront, back: newBack });
             setNewFront('');
             setNewBack('');
-            await refreshSet(); // ✅ Stay in editor
+            await refreshSet(); 
         } catch (e) {
             console.error(`Failed to add card: ${e.message}`);
         }
@@ -28,7 +28,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
     const handleDeleteCard = async (cardId) => {
         try {
             await apiCall(`/sets/${set.set_id}/cards/${cardId}`, 'DELETE');
-            await refreshSet(); // ✅ Stay in editor
+            await refreshSet(); 
         } catch (e) {
             console.error(`Failed to delete card: ${e.message}`);
         }
@@ -50,7 +50,7 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
                 back: editData.back.trim(),
             });
             setEditingCardId(null);
-            await refreshSet(); // ✅ Stay in editor
+            await refreshSet();
         } catch (e) {
             console.error(`Failed to update card: ${e.message}`);
         }
@@ -73,11 +73,11 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             if (isNewSet) {
                 await apiCall('/sets', 'POST', payload);
                 console.log("Set saved! You can now add cards.");
-                navigateToDashboard(); // ✅ Go back when new set is first saved
+                navigateToDashboard(); 
             } else {
                 await apiCall(`/sets/${set.set_id}`, 'PUT', payload);
                 console.log("Set details updated successfully!");
-                navigateToDashboard(); // ✅ Go back only when updating set info
+                navigateToDashboard(); 
             }
         } catch (e) {
             console.error(`Failed to save set: ${e.message}`);
