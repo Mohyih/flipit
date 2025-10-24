@@ -73,11 +73,11 @@ const SetEditor = ({ apiCall, set, refreshSet, navigateToDashboard }) => {
             if (isNewSet) {
                 await apiCall('/sets', 'POST', payload);
                 console.log("Set saved! You can now add cards.");
-                navigateToDashboard(); 
+                navigateToDashboard(); // ✅ new set returns after creation
             } else {
                 await apiCall(`/sets/${set.set_id}`, 'PUT', payload);
                 console.log("Set details updated successfully!");
-                navigateToDashboard(); 
+                navigateToDashboard(); // ✅ go back only after updating details
             }
         } catch (e) {
             console.error(`Failed to save set: ${e.message}`);
